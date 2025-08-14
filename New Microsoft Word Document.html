@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ErgoMom – Pregnancy Tracking Devices</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-deep:#3f2321;         /* header/footer brown */
+      --bg-cream:#e9dfd4;        /* light divider bg */
+      --bg-panel:#6a4a48;        /* rounded panel */
+      --text:#f8f7f6;
+      --muted:#d8cdc4;
+      --primary:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:22px;
+      --radius-lg:28px;
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background:#0e2a35;
+    }
+    .container{max-width:var(--maxw); margin-inline:auto; padding-inline:24px}
+
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:50; background:var(--bg-deep); color:#fff}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{font-weight:600; letter-spacing:.2px}
+    .cta{color:#fff; border:1px solid rgba(255,255,255,.7); padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:500; backdrop-filter:saturate(140%) blur(2px)}
+    .cta:hover{background:rgba(255,255,255,.1)}
+
+    /* HERO */
+    .hero{position:relative; min-height:70vh; display:grid; place-items:center; text-align:center;}
+    .hero::before{content:""; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1608889175304-105b956fd1d2?q=80&w=1920&auto=format&fit=crop'); background-size:cover; background-position:center 30%; filter:saturate(85%);}
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(6,45,57,.8) 0%, rgba(23,103,123,.65) 60%, rgba(6,45,57,.8) 100%);}    
+    .hero-content{position:relative; z-index:1; padding:48px 16px}
+    .title{font-family:"Playfair Display", Georgia, serif; font-size:min(11vw,64px); line-height:1.05; margin:0 0 16px}
+    .subtitle{max-width:820px; margin:0 auto 28px; color:#f0f0f0; opacity:.95}
+    .btn{display:inline-block; padding:12px 20px; border:1px solid rgba(255,255,255,.7); border-radius:14px; color:#fff; text-decoration:none; font-weight:500}
+    .btn:hover{background:rgba(255,255,255,.12)}
+
+    /* WAVE DIVIDER */
+    .wave{position:relative; height:64px; margin-top:-32px; background:transparent; overflow:hidden}
+    .wave svg{position:absolute; left:50%; transform:translateX(-50%); bottom:-1px; min-width:1200px}
+
+    /* SERVICES GRID */
+    .section{padding:56px 0}
+    .section.dark{background:#0f3a4a}
+    .services{display:grid; grid-template-columns:repeat(3,1fr); gap:28px}
+    .card{position:relative; border-radius:24px; overflow:hidden; background:#123a4a; min-height:320px; box-shadow:var(--shadow)}
+    .card img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.9)}
+    .card .overlay{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.0) 50%)}
+    .card .content{position:absolute; left:0; right:0; bottom:0; padding:22px}
+    .card h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:26px}
+    .muted{color:#f4ede7; opacity:.9}
+    .chip{display:inline-block; margin-top:12px; padding:8px 12px; background:rgba(255,255,255,.9); color:#101010; border-radius:12px; font-size:14px; text-decoration:none}
+
+    /* FEATURE STRIP */
+    .strip{position:relative; background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1920&auto=format&fit=crop'); background-size:cover; background-position:center;}
+    .strip::before{content:""; position:absolute; inset:0; background:rgba(5,35,46,.78)}
+    .strip .container{position:relative; z-index:1}
+    .strip-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:36px}
+    .strip h2{font-family:"Playfair Display", Georgia, serif; font-size:min(8vw,44px); margin:0 0 18px}
+    .kv{display:grid; gap:8px}
+    .kv h4{margin:0 0 6px; font-family:"Playfair Display", Georgia, serif}
+    .kv p{margin:0; color:#dfe8ec}
+
+    /* ROUNDED PANEL CALLOUT */
+    .panel-wrap{background:var(--bg-cream)}
+    .panel{background:var(--bg-panel); border-radius:var(--radius-lg); padding:40px; box-shadow:var(--shadow)}
+    .panel h3{font-family:"Playfair Display", Georgia, serif; font-size:min(8vw,40px); margin:0 0 12px}
+    .panel p{color:#efe9e7; max-width:680px}
+    .panel .btn{background:#f5eee7; color:#2a1b1a; border-color:transparent}
+    .panel .btn:hover{opacity:.9}
+
+    /* FOOTER */
+    footer{background:var(--bg-deep); padding:40px 0; color:#f1ebe7}
+    .foot{display:flex; align-items:center; justify-content:space-between}
+    .made{opacity:.9}
+    .made a{color:#fff; opacity:.9}
+
+    /* RESPONSIVE */
+    @media (max-width:1024px){
+      .services{grid-template-columns:1fr 1fr}
+      .strip-grid{grid-template-columns:1fr;}
+    }
+    @media (max-width:640px){
+      .services{grid-template-columns:1fr}
+      .title{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">ErgoMom</div>
+      <a class="cta" href="#contact">Contact us</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="title">Advanced<br/>Pregnancy Tracking<br/>Devices</h1>
+      <p class="subtitle">Experience peace of mind with ErgoMom's innovative gadgets, offering unparalleled insight into your pregnancy journey in Tehran.</p>
+      <a class="btn" href="#track">Track Your Pregnancy</a>
+    </div>
+  </section>
+
+  <!-- WAVE DIVIDER (decorative) -->
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" width="100%" height="100%">
+      <path d="M0,80 C240,120 480,0 720,40 C960,80 1200,40 1440,80 L1440,100 L0,100 Z" fill="var(--bg-cream)"/>
+    </svg>
+  </div>
+
+  <!-- SERVICES GRID -->
+  <section class="section dark">
+    <div class="container">
+      <div class="services">
+        <!-- Card 1 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1584516150909-c43483ee7932?q=80&w=1200&auto=format&fit=crop" alt="Custom Website Design">
+          <div class="overlay"></div>
+          <div class="content">
+            <h3>Custom Website Design</h3>
+            <p class="muted">Craft personalized websites tailored to enhance pregnancy tracking and user experience.</p>
+            <a class="chip" href="#">More info</a>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1512325562395-35c093d3ab83?q=80&w=1200&auto=format&fit=crop" alt="Smart Gadget Integration">
+          <div class="overlay"></div>
+          <div class="content">
+            <h3>Smart Gadget Integration</h3>
+            <p class="muted">Seamlessly connect devices to track vital pregnancy metrics with ease.</p>
+            <a class="chip" href="#">More info</a>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519659528534-7fd733a832a0?q=80&w=1200&auto=format&fit=crop" alt="Mobile App Development">
+          <div class="overlay"></div>
+          <div class="content">
+            <h3>Mobile App Development</h3>
+            <p class="muted">Develop intuitive apps for expectant mothers to monitor health anytime.</p>
+            <a class="chip" href="#">More info</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES STRIP -->
+  <section class="section strip">
+    <div class="container">
+      <div class="strip-grid">
+        <div>
+          <small class="muted">Nurture Secure</small>
+          <h2>Tehran's Trusted Pregnancy Gadget</h2>
+        </div>
+        <div class="kv">
+          <h4>Innovation</h4>
+          <p>We push the boundaries to create cutting-edge solutions for pregnancy monitoring.</p>
+        </div>
+        <div class="kv">
+          <h4>Empathy</h4>
+          <p>Designing products that are functional and sensitive to mothers’ unique needs.</p>
+        </div>
+        <div class="kv">
+          <h4>Quality</h4>
+          <p>Reliable, safe and effective devices — built to the highest standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALLOUT PANEL ON CREAM BG -->
+  <section class="section panel-wrap">
+    <div class="container">
+      <div class="panel">
+        <h3>Monitor Your Pregnancy Journey</h3>
+        <p>Experience peace of mind with ErgoMom's innovative pregnancy monitoring gadgets and website design. Stay informed and connected throughout your pregnancy journey.</p>
+        <a class="btn" href="#">Discover More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container foot">
+      <div>ErgoMom</div>
+      <div class="made">Made with <a href="#" rel="noopener">Durable</a></div>
+    </div>
+  </footer>
+</body>
+</html>
