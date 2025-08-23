@@ -35,11 +35,12 @@
 
     /* HERO */
     .hero{position:relative; min-height:70vh; display:grid; place-items:center; text-align:center;}
-    .hero::before{content:""; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1609170854321-1a419a7bc01c?q=80&w=1920&auto=format&fit=crop'); background-size:cover; background-position:center; filter:saturate(85%);}
+    .hero::before{content:""; position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1608889175304-105b956fd1d2?q=80&w=1920&auto=format&fit=crop'); background-size:cover; background-position:center 30%; filter:saturate(85%);}
     .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(6,45,57,.8) 0%, rgba(23,103,123,.65) 60%, rgba(6,45,57,.8) 100%);}    
     .hero-content{position:relative; z-index:1; padding:48px 16px}
     .title{font-size:min(11vw,64px); line-height:1.2; margin:0 0 16px}
     .subtitle{max-width:820px; margin:0 auto 28px; color:#f0f0f0; opacity:.95}
+
     .btn{display:inline-block; padding:12px 20px; border:1px solid rgba(255,255,255,.7); border-radius:14px; color:#fff; text-decoration:none; font-weight:500}
     .btn:hover{background:rgba(255,255,255,.12)}
 
@@ -60,7 +61,7 @@
     .chip{display:inline-block; margin-top:12px; padding:8px 12px; background:rgba(255,255,255,.9); color:#101010; border-radius:12px; font-size:14px; text-decoration:none}
 
     /* FEATURE STRIP */
-    .strip{position:relative; background-image:url('https://images.unsplash.com/photo-1600488999101-b184b7c6c3c9?q=80&w=1920&auto=format&fit=crop'); background-size:cover; background-position:center;}
+    .strip{position:relative; background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1920&auto=format&fit=crop'); background-size:cover; background-position:center;}
     .strip::before{content:""; position:absolute; inset:0; background:rgba(5,35,46,.78)}
     .strip .container{position:relative; z-index:1}
     .strip-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:36px}
@@ -79,7 +80,7 @@
 
     /* FOOTER */
     footer{background:var(--bg-deep); padding:40px 0; color:#f1ebe7}
-    .foot{display:flex; align-items:center; justify-content:center}
+    .foot{display:flex; align-items:center; justify-content:space-between}
     .made{opacity:.9}
     .made a{color:#fff; opacity:.9}
 
@@ -107,7 +108,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1 class="title">دستگاه‌های<br/>پیشرفته پایش<br/>بارداری</h1>
-      <p class="subtitle">با ابزارهای نوآورانه ارگومام، آرامش خاطر را تجربه کنید و بینش دقیقی از مسیر بارداری خود داشته باشید.</p>
+      <p class="subtitle">با ابزارهای نوآورانه ارگومام، آرامش خاطر را تجربه کنید و بینش دقیقی از مسیر بارداری خود در تهران داشته باشید.</p>
       <a class="btn" href="#track">پیگیری بارداری</a>
     </div>
   </section>
@@ -125,7 +126,7 @@
       <div class="services">
         <!-- Card 1 -->
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1615800008822-86b8980c97c7?q=80&w=1200&auto=format&fit=crop" alt="طراحی سایت اختصاصی">
+          <img src="https://images.unsplash.com/photo-1584516150909-c43483ee7932?q=80&w=1200&auto=format&fit=crop" alt="طراحی سایت اختصاصی">
           <div class="overlay"></div>
           <div class="content">
             <h3>طراحی اختصاصی وب‌سایت</h3>
@@ -135,7 +136,7 @@
         </article>
         <!-- Card 2 -->
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1599058917212-d750089bc06a?q=80&w=1200&auto=format&fit=crop" alt="ادغام ابزار هوشمند">
+          <img src="https://images.unsplash.com/photo-1512325562395-35c093d3ab83?q=80&w=1200&auto=format&fit=crop" alt="ادغام ابزار هوشمند">
           <div class="overlay"></div>
           <div class="content">
             <h3>اتصال ابزارهای هوشمند</h3>
@@ -145,7 +146,7 @@
         </article>
         <!-- Card 3 -->
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1608494819622-471a9aef1268?q=80&w=1200&auto=format&fit=crop" alt="توسعه اپلیکیشن موبایل">
+          <img src="https://images.unsplash.com/photo-1519659528534-7fd733a832a0?q=80&w=1200&auto=format&fit=crop" alt="توسعه اپلیکیشن موبایل">
           <div class="overlay"></div>
           <div class="content">
             <h3>توسعه اپلیکیشن موبایل</h3>
@@ -163,7 +164,7 @@
       <div class="strip-grid">
         <div>
           <small class="muted">امنیت و آرامش</small>
-          <h2>دستگاه‌های قابل اعتماد پایش بارداری</h2>
+          <h2>دستگاه مورد اعتماد بارداری در تهران</h2>
         </div>
         <div class="kv">
           <h4>نوآوری</h4>
@@ -196,6 +197,7 @@
   <footer>
     <div class="container foot">
       <div>ارگومام</div>
+      <div class="made">ساخته‌شده با <a href="#" rel="noopener">دوام</a></div>
     </div>
   </footer>
 </body>
